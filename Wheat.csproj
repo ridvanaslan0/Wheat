@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Wheat</RootNamespace>
+    <AssemblyName>Wheat</AssemblyName>
+
+    <!-- Metadata shown in the exe's Properties > Details tab -->
+    <Version>1.0.0</Version>
+    <Product>Wheat</Product>
+    <Authors>Wheat contributors</Authors>
+    <Description>A retro desktop mascot that chats with an AI model and can operate your PC.</Description>
+    <Copyright>Copyright (c) 2026 Wheat contributors</Copyright>
+
+    <!-- Always ask Windows for administrator rights at launch (one UAC prompt, then no more) -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+
+    <!-- One self-contained exe: no .NET runtime install needed on the target PC -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Stores API keys encrypted with Windows DPAPI -->
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
